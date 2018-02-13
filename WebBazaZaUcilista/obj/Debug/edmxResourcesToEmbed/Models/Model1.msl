@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UcilistaBazaModelStoreContainer" CdmEntityContainer="UcilistaBazaEntities">
+    <EntitySetMapping Name="Izostanocis">
+      <EntityTypeMapping TypeName="UcilistaBazaModel.Izostanoci">
+        <MappingFragment StoreEntitySet="Izostanoci">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdImeIPrezime" ColumnName="IdImeIPrezime" />
+          <ScalarProperty Name="Opravdani" ColumnName="Opravdani" />
+          <ScalarProperty Name="Neopravdani" ColumnName="Neopravdani" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paralelkis">
+      <EntityTypeMapping TypeName="UcilistaBazaModel.Paralelki">
+        <MappingFragment StoreEntitySet="Paralelki">
+          <ScalarProperty Name="IdParalelka" ColumnName="IdParalelka" />
+          <ScalarProperty Name="IdUciliste" ColumnName="IdUciliste" />
+          <ScalarProperty Name="ImeNaParalelka" ColumnName="ImeNaParalelka" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uceniks">
+      <EntityTypeMapping TypeName="UcilistaBazaModel.Ucenik">
+        <MappingFragment StoreEntitySet="Ucenik">
+          <ScalarProperty Name="IdUcenik" ColumnName="IdUcenik" />
+          <ScalarProperty Name="IdParalelka" ColumnName="IdParalelka" />
+          <ScalarProperty Name="IdImeIPrezime" ColumnName="IdImeIPrezime" />
+          <ScalarProperty Name="EMBG" ColumnName="EMBG" />
+          <ScalarProperty Name="SredenUspeh" ColumnName="SredenUspeh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ucilistes">
+      <EntityTypeMapping TypeName="UcilistaBazaModel.Uciliste">
+        <MappingFragment StoreEntitySet="Uciliste">
+          <ScalarProperty Name="IdUciliste" ColumnName="IdUciliste" />
+          <ScalarProperty Name="ImeNaUciliste" ColumnName="ImeNaUciliste" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

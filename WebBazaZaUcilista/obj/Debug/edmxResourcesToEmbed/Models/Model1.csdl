@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UcilistaBazaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Izostanoci">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IdImeIPrezime" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opravdani" Type="Int32" Nullable="false" />
+    <Property Name="Neopravdani" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Paralelki">
+    <Key>
+      <PropertyRef Name="IdParalelka" />
+    </Key>
+    <Property Name="IdParalelka" Type="Int32" Nullable="false" />
+    <Property Name="IdUciliste" Type="Int32" Nullable="false" />
+    <Property Name="ImeNaParalelka" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ucenik">
+    <Key>
+      <PropertyRef Name="IdUcenik" />
+    </Key>
+    <Property Name="IdUcenik" Type="Int32" Nullable="false" />
+    <Property Name="IdParalelka" Type="Int32" Nullable="false" />
+    <Property Name="IdImeIPrezime" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EMBG" Type="Int32" />
+    <Property Name="SredenUspeh" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Uciliste">
+    <Key>
+      <PropertyRef Name="IdUciliste" />
+    </Key>
+    <Property Name="IdUciliste" Type="Int32" Nullable="false" />
+    <Property Name="ImeNaUciliste" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="UcilistaBazaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Izostanocis" EntityType="Self.Izostanoci" />
+    <EntitySet Name="Paralelkis" EntityType="Self.Paralelki" />
+    <EntitySet Name="Uceniks" EntityType="Self.Ucenik" />
+    <EntitySet Name="Ucilistes" EntityType="Self.Uciliste" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="UcilistaBazaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Izostanoci">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="IdImeIPrezime" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Opravdani" Type="int" Nullable="false" />
+          <Property Name="Neopravdani" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Paralelki">
+          <Key>
+            <PropertyRef Name="IdParalelka" />
+          </Key>
+          <Property Name="IdParalelka" Type="int" Nullable="false" />
+          <Property Name="IdUciliste" Type="int" Nullable="false" />
+          <Property Name="ImeNaParalelka" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ucenik">
+          <Key>
+            <PropertyRef Name="IdUcenik" />
+          </Key>
+          <Property Name="IdUcenik" Type="int" Nullable="false" />
+          <Property Name="IdParalelka" Type="int" Nullable="false" />
+          <Property Name="IdImeIPrezime" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="EMBG" Type="real" />
+          <Property Name="SredenUspeh" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Uciliste">
+          <Key>
+            <PropertyRef Name="IdUciliste" />
+          </Key>
+          <Property Name="IdUciliste" Type="int" Nullable="false" />
+          <Property Name="ImeNaUciliste" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="UcilistaBazaModelStoreContainer">
+          <EntitySet Name="Izostanoci" EntityType="Self.Izostanoci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paralelki" EntityType="Self.Paralelki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ucenik" EntityType="Self.Ucenik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uciliste" EntityType="Self.Uciliste" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UcilistaBazaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Izostanoci">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdImeIPrezime" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Opravdani" Type="Int32" Nullable="false" />
+          <Property Name="Neopravdani" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Paralelki">
+          <Key>
+            <PropertyRef Name="IdParalelka" />
+          </Key>
+          <Property Name="IdParalelka" Type="Int32" Nullable="false" />
+          <Property Name="IdUciliste" Type="Int32" Nullable="false" />
+          <Property Name="ImeNaParalelka" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ucenik">
+          <Key>
+            <PropertyRef Name="IdUcenik" />
+          </Key>
+          <Property Name="IdUcenik" Type="Int32" Nullable="false" />
+          <Property Name="IdParalelka" Type="Int32" Nullable="false" />
+          <Property Name="IdImeIPrezime" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EMBG" Type="Int32" />
+          <Property Name="SredenUspeh" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Uciliste">
+          <Key>
+            <PropertyRef Name="IdUciliste" />
+          </Key>
+          <Property Name="IdUciliste" Type="Int32" Nullable="false" />
+          <Property Name="ImeNaUciliste" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="UcilistaBazaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Izostanocis" EntityType="Self.Izostanoci" />
+          <EntitySet Name="Paralelkis" EntityType="Self.Paralelki" />
+          <EntitySet Name="Uceniks" EntityType="Self.Ucenik" />
+          <EntitySet Name="Ucilistes" EntityType="Self.Uciliste" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UcilistaBazaModelStoreContainer" CdmEntityContainer="UcilistaBazaEntities">
+          <EntitySetMapping Name="Izostanocis">
+            <EntityTypeMapping TypeName="UcilistaBazaModel.Izostanoci">
+              <MappingFragment StoreEntitySet="Izostanoci">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdImeIPrezime" ColumnName="IdImeIPrezime" />
+                <ScalarProperty Name="Opravdani" ColumnName="Opravdani" />
+                <ScalarProperty Name="Neopravdani" ColumnName="Neopravdani" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paralelkis">
+            <EntityTypeMapping TypeName="UcilistaBazaModel.Paralelki">
+              <MappingFragment StoreEntitySet="Paralelki">
+                <ScalarProperty Name="IdParalelka" ColumnName="IdParalelka" />
+                <ScalarProperty Name="IdUciliste" ColumnName="IdUciliste" />
+                <ScalarProperty Name="ImeNaParalelka" ColumnName="ImeNaParalelka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uceniks">
+            <EntityTypeMapping TypeName="UcilistaBazaModel.Ucenik">
+              <MappingFragment StoreEntitySet="Ucenik">
+                <ScalarProperty Name="IdUcenik" ColumnName="IdUcenik" />
+                <ScalarProperty Name="IdParalelka" ColumnName="IdParalelka" />
+                <ScalarProperty Name="IdImeIPrezime" ColumnName="IdImeIPrezime" />
+                <ScalarProperty Name="EMBG" ColumnName="EMBG" />
+                <ScalarProperty Name="SredenUspeh" ColumnName="SredenUspeh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ucilistes">
+            <EntityTypeMapping TypeName="UcilistaBazaModel.Uciliste">
+              <MappingFragment StoreEntitySet="Uciliste">
+                <ScalarProperty Name="IdUciliste" ColumnName="IdUciliste" />
+                <ScalarProperty Name="ImeNaUciliste" ColumnName="ImeNaUciliste" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

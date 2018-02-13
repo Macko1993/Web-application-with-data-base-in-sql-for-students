@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UcilistaBazaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Izostanoci">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="IdImeIPrezime" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Opravdani" Type="int" Nullable="false" />
+    <Property Name="Neopravdani" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Paralelki">
+    <Key>
+      <PropertyRef Name="IdParalelka" />
+    </Key>
+    <Property Name="IdParalelka" Type="int" Nullable="false" />
+    <Property Name="IdUciliste" Type="int" Nullable="false" />
+    <Property Name="ImeNaParalelka" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ucenik">
+    <Key>
+      <PropertyRef Name="IdUcenik" />
+    </Key>
+    <Property Name="IdUcenik" Type="int" Nullable="false" />
+    <Property Name="IdParalelka" Type="int" Nullable="false" />
+    <Property Name="IdImeIPrezime" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="EMBG" Type="real" />
+    <Property Name="SredenUspeh" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Uciliste">
+    <Key>
+      <PropertyRef Name="IdUciliste" />
+    </Key>
+    <Property Name="IdUciliste" Type="int" Nullable="false" />
+    <Property Name="ImeNaUciliste" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="UcilistaBazaModelStoreContainer">
+    <EntitySet Name="Izostanoci" EntityType="Self.Izostanoci" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Paralelki" EntityType="Self.Paralelki" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ucenik" EntityType="Self.Ucenik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Uciliste" EntityType="Self.Uciliste" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
